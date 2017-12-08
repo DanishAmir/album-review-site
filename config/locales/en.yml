@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app_title: Which Album?
+  app_description: This is a website to check out the reviews for the latest albums
+  
+  home:
+    home:
+      name: Which Album?
+      description: Wanna review the latest album? Click here below
