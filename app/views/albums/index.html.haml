@@ -1,7 +1,9 @@
 %h1 All albums here below
 - @albums.each do |album|
+  
   %h2= album.title
   %p
+    = image_tag album.image.url(:medium)
     = album.artist
     = link_to 'View details', album
 
