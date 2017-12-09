@@ -10,6 +10,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
+gem 'paperclip', '~> 4.2.0'
 gem 'modernizr-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
