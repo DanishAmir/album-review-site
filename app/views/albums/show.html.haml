@@ -1,7 +1,8 @@
+%h2='Album Name'
+%h1= @album.title
+  
 = image_tag @album.image.url(:medium)
-%p
-  %b Title:
-  = @album.title
+
 %p
   %b Description:
   = @album.description
