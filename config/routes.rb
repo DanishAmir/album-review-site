@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :reviews
   devise_for :users
-  resources :albums
+  resources :reviews 
+    resources :albums
   root 'home#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -16,9 +16,11 @@
 
 = link_to 'Back', albums_path
   - if user_signed_in?
+  = link_to 'Add Review', new_review_path(@album)
     - if @album.user_id == current_user.id
 
     = link_to 'Edit', edit_album_path(@album)
     %br
     = link_to 'Destroy', @album, method: :delete, data: { confirm: 'Are you sure?' } 
     %br
+    

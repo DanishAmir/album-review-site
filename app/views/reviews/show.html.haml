@@ -7,6 +7,10 @@
   %b Thoughts:
   = @review.thoughts
 
+%p
+  %b Reviewer email
+  = @review.user.email
+
 = link_to 'Edit', edit_review_path(@review)
 \|
 = link_to 'Back', reviews_path
