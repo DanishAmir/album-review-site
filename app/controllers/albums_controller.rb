@@ -11,6 +11,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @reviews = Review.where(album_id: @album.id).order("created_at DESC")
   end
 
   # GET /albums/new

@@ -1,26 +1,35 @@
-%h2='Album Name'
-%h1= @album.title
-  
-= image_tag @album.image.url(:medium)
+.panel.panel-default
+  .panel-body
+    .row
+      .col-md-4
+        = image_tag @album.image.url(:medium)
+        .table-responsive
+          %table.table
+            %tbody
+              %tr
+                %td
+                  %b Album Name:
+                %td= @album.title
+              %tr
+                %td Description
+                %td= @album.description
+              %tr
+                %td Sang by
+                %td= @album.artist
+              %tr
+                %td Released in
+                %td= @album.year
+          = link_to "Write review", new_album_review_path(@album), class: "btn btn-danger"
+      .col-md-7.col-md-offset-1
+        %h1.review_title= @album.title
+        %p= @album.description
+        - if @reviews.blank?
+          %h3 Add a review, click the red button
+        - else
+          - @reviews.each do |review|
+            %p= review.stars
+            %p= review.thoughts
 
-%p
-  %b Description:
-  = @album.description
-%p
-  %b Artist:
-  = @album.artist
-%p
-  %b Year:
-  = @album.year
 
 
-= link_to 'Back', albums_path
-  - if user_signed_in?
-  = link_to 'Add Review', new_review_path(@album)
-    - if @album.user_id == current_user.id
-
-    = link_to 'Edit', edit_album_path(@album)
-    %br
-    = link_to 'Destroy', @album, method: :delete, data: { confirm: 'Are you sure?' } 
-    %br
-    
+          

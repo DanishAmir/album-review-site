@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :reviews 
-    resources :albums
+
+  resources :albums do
+    resources :reviews, except: [:show, :index]
+  end
+
   root 'home#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
