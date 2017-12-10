@@ -10,8 +10,9 @@
     %p
     = album.artist
     \|
-    = 'Add a review'
+    = link_to 'Add a review', new_album_review_path(album)
 
 %br
 
-= link_to 'Add Album', new_album_path
+= link_to "Add an album", new_album_path, class: "btn btn-danger"
+

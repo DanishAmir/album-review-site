@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  album: DAMN.
   stars: 1
   thoughts: MyText
 
 two:
-  stars: 1
-  thoughts: MyText
+  album: To Pimp A Butterfly
+  stars: 5
+  thoughts: 

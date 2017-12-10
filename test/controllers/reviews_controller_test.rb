@@ -3,6 +3,7 @@ require 'test_helper'
 class ReviewsControllerTest < ActionController::TestCase
   setup do
     @review = reviews(:one)
+    @album = albums(:one)
   end
 
   test "should get index" do
@@ -12,7 +13,7 @@ class ReviewsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    get :new, @album
     assert_response :success
   end
 
@@ -20,23 +21,17 @@ class ReviewsControllerTest < ActionController::TestCase
     assert_difference('Review.count') do
       post :create, review: { stars: @review.stars, thoughts: @review.thoughts }
     end
-
-    assert_redirected_to review_path(assigns(:review))
-  end
-
-  test "should show review" do
-    get :show, id: @review
-    assert_response :success
+    assert_redirected_to album_path(assigns(:review))
   end
 
   test "should get edit" do
-    get :edit, id: @review
+    get :edit, @review
     assert_response :success
   end
 
   test "should update review" do
     patch :update, id: @review, review: { stars: @review.stars, thoughts: @review.thoughts }
-    assert_redirected_to review_path(assigns(:review))
+    assert_redirected_to edit_album_review(assigns(:review))
   end
 
   test "should destroy review" do

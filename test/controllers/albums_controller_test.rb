@@ -6,13 +6,13 @@ class AlbumsControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index
+    get :index, @album
     assert_response :success
     assert_not_nil assigns(:albums)
   end
 
   test "should get new" do
-    get :new
+    get :new, new_album_path
     assert_response :success
   end
 
@@ -25,7 +25,7 @@ class AlbumsControllerTest < ActionController::TestCase
   end
 
   test "should show album" do
-    get :show, id: @album
+    get :show, @album.id
     assert_response :success
   end
 

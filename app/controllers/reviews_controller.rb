@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_review, only: [:edit, :update, :destroy]
   before_action :set_album
   before_action :authenticate_user!
   
@@ -30,14 +30,20 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   def update
-    @review.update(review_params)
+    @review = set_review
+    
+    if @review.update(review_params)
+      redirect_to album_path(@album)
+    else
+      render 'edit'
+    end
   end
 
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
     @review.destroy
-    redirect_to root_path
+    redirect_to album_path(@album)
   end
 
   private

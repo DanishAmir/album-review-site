@@ -5,10 +5,15 @@
     = '|'
     = link_to t('logout'), destroy_user_session_path, method: 'delete'
     = '|'
+    = link_to t('View Albums'), albums_path
+    = '|'
+    = link_to t('Add Album'), new_album_path
   - else
     = link_to t('login'), new_user_session_path
     = '|'
     = link_to t('sign_up'), new_user_registration_path
+    = '|'
+    = link_to t('View Albums'), albums_path
 
 - flash.each do |key, value|
   = content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank?
