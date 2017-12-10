@@ -1,3 +1,4 @@
+/This page shows the details of the album and has all reviews displaying on the side too. It has all relevant info and has leading information eg if the user is signed in has written a review previously, they can edit or delete it and only they can see this button to make it more leading for them 
 .panel.panel-default
   .panel-body
     .row
@@ -21,8 +22,10 @@
                 %td= @album.year
           = link_to "Write review", new_album_review_path(@album), class: "btn btn-primary"
           = link_to "Back to albums", albums_path, class: "btn btn-success"
-          - if @album.user_id = current_user.id
-            = link_to "Edit album", edit_album_path(@album)
+          - if @album.user_id == current_user.id
+            = link_to 'Edit Album', edit_album_path(@album), class: "btn btn-warning"
+            = link_to 'Delete Album', album_path(@album), method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-warning"  
+
       .col-md-7.col-md-offset-1
         - if @reviews.blank?
           %h3 Add a review, click the red button
@@ -36,8 +39,3 @@
                 = link_to 'Edit Review', edit_album_review_path(review.album, review), class: "btn btn-warning"
                 = link_to 'Delete Review', album_review_path(review.album, review), method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-warning"
             %br
-            
-            
-
-
-          

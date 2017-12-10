@@ -1,12 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  user: me@admin.com
   title: If you are reading this its too late
   description: Drake surprises us with a mixtape
   artist: Drake
   year: 2015
 
 two:
+  user: you@teacher.com
   title: Recovery
   description: After a failure of an album, he is back
   artist: Eminem

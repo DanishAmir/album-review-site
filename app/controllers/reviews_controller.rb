@@ -15,7 +15,6 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.album_id = @album.id
-    
     if @review.save
       redirect_to @album
     else
@@ -27,7 +26,6 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1.json
   def update
     @review = set_review
-    
     if @review.update(review_params)
       redirect_to album_path(@album)
     else

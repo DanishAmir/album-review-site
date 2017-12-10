@@ -9,3 +9,5 @@ class AddAttachmentImageToAlbums < ActiveRecord::Migration
     remove_attachment :albums, :image
   end
 end
+
+## Allow the user to add album cover to the album they want to create

@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  user: me@admin.com
   album: DAMN.
   stars: 1
-  thoughts: MyText
+  thoughts: Rubbish
 
 two:
+  user: me@admin.com
   album: To Pimp A Butterfly
   stars: 5
-  thoughts: 
+  thoughts: Good

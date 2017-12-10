@@ -13,7 +13,7 @@
     - if album.user_id == current_user.id
       \|
       = link_to 'Edit Album', edit_album_path(album), class: "btn"
-      = link_to 'Delete Album', 
+      = link_to 'Delete Album', album_path(album), method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-warning"
 
 %br
 

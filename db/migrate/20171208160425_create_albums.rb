@@ -10,3 +10,5 @@ class CreateAlbums < ActiveRecord::Migration
     end
   end
 end
+
+## Creates a database of albums, the artist, year and title cannot be left empty if creating
