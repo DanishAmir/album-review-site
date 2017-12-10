@@ -20,6 +20,9 @@
                 %td Released in
                 %td= @album.year
           = link_to "Write review", new_album_review_path(@album), class: "btn btn-primary"
+          = link_to "Back to albums", albums_path, class: "btn btn-success"
+          - if @album.user_id = current_user.id
+            = link_to "Edit album", edit_album_path(@album)
       .col-md-7.col-md-offset-1
         - if @reviews.blank?
           %h3 Add a review, click the red button

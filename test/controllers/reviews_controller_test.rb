@@ -6,12 +6,6 @@ class ReviewsControllerTest < ActionController::TestCase
     @album = albums(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:reviews)
-  end
-
   test "should get new" do
     get :new, @album
     assert_response :success
@@ -22,11 +16,6 @@ class ReviewsControllerTest < ActionController::TestCase
       post :create, review: { stars: @review.stars, thoughts: @review.thoughts }
     end
     assert_redirected_to album_path(assigns(:review))
-  end
-
-  test "should get edit" do
-    get :edit, @review
-    assert_response :success
   end
 
   test "should update review" do
