@@ -10,11 +10,7 @@
     = album.artist
     \|
     = link_to 'Add a review', new_album_review_path(album)
-    - if album.user_id == current_user.id
-      \|
-      = link_to 'Edit Album', edit_album_path(album), class: "btn"
-      = link_to 'Delete Album', album_path(album), method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-warning"
-
+    
 %br
 
 = link_to "Add an album", new_album_path, class: "btn btn-danger"

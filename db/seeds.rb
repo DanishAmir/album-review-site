@@ -10,3 +10,7 @@ a9 = Album.create({title: 'Views', description: 'Possibly the most anticipated a
 a10 = Album.create({title: 'More Life', description: 'After the success of Views, we thought Drake could never top it, but More Life promises to be full of surprises', artist: 'Drake', year: 2017})
 a11 = Album.create({title: 'Mind of my own', description: 'After leaving One Direction, half Brit-Pakistani Zayn Malik releases his first ever solo album', artist: 'Zayn Malik', year: 2016})
 a12 = Album.create({title: '7/27', description: 'The former X Factor winners are back and as hot as ever as they release a stunning album which features songs such as "Work From Home"', artist: 'Fifth Harmony', year: 2016})
+
+##this was for testing purposes - PLEASE NOTE that a lot of these albums and some others show the edit and delete album button without signing in because
+##of the fact that a lot of these were seeded and I created some albums for testing purposes before user authentication, therefore this allows this to happen
+## therefore user id was nil and authentication didn't work

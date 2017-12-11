@@ -1,6 +1,8 @@
 %nav
   - if user_signed_in?
     = "#{current_user.email} |"
+    = link_to t('Home'), root_path
+    = '|'
     = link_to t('profile'), edit_user_registration_path
     = '|'
     = link_to t('logout'), destroy_user_session_path, method: 'delete'
@@ -10,6 +12,8 @@
     = link_to t('Add Album'), new_album_path
     = '|'
     = link_to t('Contact us'), contact_path
+    = '|'
+    = link_to t('View Wishlist'), wishlists_path
   - else
     = link_to t('login'), new_user_session_path
     = '|'

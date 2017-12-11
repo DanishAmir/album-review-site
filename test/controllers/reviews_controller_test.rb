@@ -18,12 +18,12 @@ class ReviewsControllerTest < ActionController::TestCase
     assert_difference('Review.count') do
       post :create, review: { stars: @review.stars, thoughts: @review.thoughts }
     end
-    assert_redirected_to new_album_review(assigns(:review))
+    assert_redirected_to new_album_review_path(assigns(:review))
   end
 
   test "should update review" do
     patch :update, id: @review, review: { stars: @review.stars, thoughts: @review.thoughts }
-    assert_redirected_to edit_album_review(assigns(:review))
+    assert_redirected_to edit_album_review_path(assigns(@review))
   end
 
   test "should destroy review" do
