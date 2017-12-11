@@ -1,5 +1,5 @@
 class AddAlbumIdToWishlist < ActiveRecord::Migration
   def change
-    add_column :wishlist, :album_id, :integer  
+    add_column :wishlists, :album_id, :integer  
   end
 end

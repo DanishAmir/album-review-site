@@ -1,4 +1,8 @@
 class WishlistsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_wishlist
+  before_action :set_album
+  
   # GET /wishlists
   # GET /wishlists.json
   def index
@@ -6,13 +10,9 @@ class WishlistsController < ApplicationController
   end
   
   def add
-    id = params[:id]
-    wishlist = session[:wishlists] ||= {}
-    wishlist[id] = (cart[id] || 0) + 1
-    
-    redirect_to :action => :index
+    @wishlist = current_user.wishlists.build
   end
-
+  
    def destroy
     @wishlist.destroy
     respond_to do |format|
@@ -33,6 +33,6 @@ class WishlistsController < ApplicationController
     end
     
     def set_album
-    @album = Album.find(params[:id])
+      @album = Album.find(wishlists_id: @wishlist.id)
     end
 end

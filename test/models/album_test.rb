@@ -27,4 +27,24 @@ class AlbumTest < ActiveSupport::TestCase
     assert album.valid?
   end
   
+  test "save without description" do
+    album = Album.new
+    album.title = "Recovery"
+    album.year = 2017
+    album.artist = "Eminem"
+    album.user = @user
+  
+    album.save
+    assert album.valid?
+  end
+  
+  test "cannot leave these empty" do
+    album = Album.new
+    album.description = "amazing album"
+    album.user = @user
+  
+    album.save
+    refute album.valid?
+  end
+  
 end
