@@ -38,7 +38,7 @@ class AlbumTest < ActiveSupport::TestCase
     assert album.valid?
   end
   
-  test "cannot leave these empty" do
+  test "cannot leave others empty" do
     album = Album.new
     album.description = "amazing album"
     album.user = @user

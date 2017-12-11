@@ -26,4 +26,15 @@ class ReviewTest < ActiveSupport::TestCase
     assert review.valid?
   end
   
+  test "not more than 5 stars" do
+    review = Review.new
+    
+    review.album = @album
+    review.user = @user
+    review.stars = 8
+    review.thoughts = 'Fantastic'
+    
+    review.save
+    refute review.valid?
+  end
 end

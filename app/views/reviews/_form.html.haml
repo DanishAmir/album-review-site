@@ -8,9 +8,16 @@
 
   .field
     = f.label :stars
-    = f.number_field :stars
+    #star-rating
   .field
     = f.label :thoughts
     = f.text_area :thoughts
   .actions
     = f.submit 'Save'
+
+
+:javascript
+  $('#star-rating').raty({
+  path: '/assets/',
+  scoreName: 'review[stars]'
+  });

@@ -17,7 +17,7 @@ class ReviewsControllerTest < ActionController::TestCase
 
   test "should create review" do
     assert_difference('Review.count') do
-      post :create, review: { stars: @review.stars, thoughts: @review.thoughts}
+      post :create, review: { stars: @review.stars, thoughts: @review.thoughts, album_id: @album.id}
     end
     assert_redirected_to new_album_review_path(assigns(:review))
   end
@@ -31,7 +31,7 @@ class ReviewsControllerTest < ActionController::TestCase
     assert_difference('Review.count', -1) do
       delete :destroy, id: @review, album_id: @album
     end
-    assert_redirected_to reviews_path
+    assert_redirected_to album_path
   end
   
 end

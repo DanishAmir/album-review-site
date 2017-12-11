@@ -35,7 +35,7 @@
             %table
               %tr
                 %td
-                .stars{:id => "{review.stars}"}= review.stars
+                .stars{"data-score" => review.stars}
               %tr
                 %td= review.thoughts
               %tr

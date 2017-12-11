@@ -4,6 +4,7 @@ class AlbumsControllerTest < ActionController::TestCase
   include Devise::Test::ControllerHelpers
   setup do
     @album = albums(:one)
+    @review = reviews(:one)
     @user = users(:one)
     sign_in @user
   end
@@ -16,7 +17,7 @@ class AlbumsControllerTest < ActionController::TestCase
   
   
   test "should show album" do
-    get :show
+    get :show, @album
     assert_response :success
   end
 
