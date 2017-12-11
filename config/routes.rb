@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   if Rails.env.test?
     resources :albums
     resources :reviews
-    resources :wishlists
-  end
+    end
   
   
   resources :albums do

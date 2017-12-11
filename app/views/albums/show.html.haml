@@ -22,7 +22,6 @@
                 %td= @album.year
           = link_to "Write review", new_album_review_path(@album), class: "btn btn-primary"
           = link_to "Back to albums", albums_path, class: "btn btn-success"
-          = link_to "Add to wishlist", wishlists_path(@album), class: "btn btn-danger"
           - if @album.user_id == current_user
             = link_to 'Edit Album', edit_album_path(@album), class: "btn btn-warning"
             = link_to 'Delete Album', album_path(@album), method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-warning"  
