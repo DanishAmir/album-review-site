@@ -37,7 +37,7 @@ class AlbumsControllerTest < ActionController::TestCase
 
   test "should update album" do
       patch :update, id: @album, album: { artist: @album.artist, description: @album.description, title: @album.title, year: @album.year }
-      assert_redirected_to edit_album_path(assigns(:album))
+      assert_redirected_to album_path(assigns(:album))
   end
 
   test "should destroy album" do

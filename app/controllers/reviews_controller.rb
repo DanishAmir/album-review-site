@@ -4,53 +4,46 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
   
   
-  # GET /reviews/new
   def new
-    @review = Review.new
+    @review = Review.new ##will save a new review and this method is called when the person is creating a review
   end
 
-  # POST /reviews
-  # POST /reviews.json
-  def create
+
+  def create ##this method allows the user to create and it is in respect and associated with user and album. A user can create a review and a review can be written for an album that exists in the website
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.album_id = @album.id
     if @review.save
       redirect_to @album
     else
-      render 'new'
+      render 'new' ##if any issues
     end
   end
 
-  # PATCH/PUT /reviews/1
-  # PATCH/PUT /reviews/1.json
-  def update
+  def update ## edit if any issues 
     @review = set_review
     if @review.update(review_params)
       redirect_to album_path(@album)
     else
-      render 'edit'
+      render 'edit' ## if there are issues again must edit once again
     end
   end
 
-  # DELETE /reviews/1
-  # DELETE /reviews/1.json
   def destroy
     @review.destroy
-    redirect_to album_path(@album)
+    redirect_to album_path(@album) ##delete the review and back at the path of the album you just deleted review for
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_review
       @review = Review.find(params[:id])
     end
     
     def set_album
-      @album = Album.find(params[:album_id])
+      @album = Album.find(params[:album_id]) || Album.find(review_params[:album_id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:stars, :thoughts)
     end

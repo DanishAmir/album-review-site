@@ -6,4 +6,6 @@ class Album < ActiveRecord::Base
     validates :year, presence: true ##Description can be null, because of the fact that its not required - a year must be provided else they cannot submit form
     has_attached_file :image, styles: { :medium => "300x300#" } ## has an attachment of the album cover
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ ##validates all image types .jpg .png etc
+    
+    scope :user_albums, -> (user) {where(['user_id = ?', user.id])}
 end

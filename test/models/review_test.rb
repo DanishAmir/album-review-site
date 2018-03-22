@@ -7,8 +7,9 @@ class ReviewTest < ActiveSupport::TestCase
     @user = users(:one)
   end
   
-  test "should not work" do
+  test "cannot be null (Stars only)" do
     review = Review.new
+    review.thoughts = "Erm"
     
     review.save
     refute review.valid?

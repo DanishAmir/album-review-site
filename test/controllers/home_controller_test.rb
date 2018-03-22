@@ -9,14 +9,14 @@ class HomeControllerTest < ActionController::TestCase
     
     assert_select 'title', 'Which Album?'
     assert_select 'h1', 'Which Album?'
-    assert_select 'p', 'Wanna review the latest album? Click here below'
+    assert_select 'p', 'Wanna review the latest album? Surf the website here'
   end
   
   test "should get contact" do
     get :contact
     assert_response :success
     assert_template layout: 'application'
-    assert_select 'title', 'SurreyModuleSelector'
+    assert_select 'title', 'Which Album?'
     assert_select 'h1', 'Contact form'
     assert_select 'p', 'Complete the form to get in touch with us'
   end
